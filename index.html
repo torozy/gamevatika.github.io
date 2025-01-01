@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameVatika.com</title>
+    <meta name="description" content="Welcome to GameVatika.com - Bringing the future of gaming to the present. Discover our games and join the adventure.">
+    <meta property="og:title" content="GameVatika.com">
+    <meta property="og:description" content="Bringing the future of gaming to the present. Discover our games and join the adventure.">
+    <meta property="og:image" content="path-to-your-image.jpg">
+    <meta property="og:url" content="your-website-url.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="styles.css">
+     
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background: #1a1a1a;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            color: #ffd700;
+            animation: neon 1.5s ease-in-out infinite alternate;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #ffd700;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffffff;
+        }
+
+        section {
+            padding: 100px 20px;
+            margin-top: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        section:nth-child(odd) .content {
+            order: 1;
+        }
+
+        section:nth-child(odd) .image-container {
+            order: 2;
+        }
+
+        section:nth-child(even) .content {
+            order: 2;
+        }
+
+        section:nth-child(even) .image-container {
+            order: 1;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #ffd700;
+            text-shadow: 0 0 10px #ffd700, 0 0 20px #ffef97;
+        }
+
+        .content {
+            width: 50%;
+            padding: 20px;
+        }
+
+        .image-container {
+            width: 40%;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 1em;
+            color: #000000;
+            background: #ffd700;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 20px 0;
+        }
+
+        .button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1a1a1a;
+            margin-top: 50px;
+        }
+
+        .carousel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-inner {
+    display: flex;
+    width: 300%;
+    transition: transform 1s ease;
+}
+
+.carousel-item {
+    flex: 0 0 33.333%;
+    position: relative;
+    max-height: 500px; /* Set a maximum height */
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This ensures the image fits within the given area while maintaining aspect ratio */
+    border-radius: 10px; /* Optional: Rounded corners */
+}
+
+.carousel-text-box {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 80%;
+}
+
+
+
+
+        @keyframes neon {
+            from {
+                text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700, 0 0 40px #ffef97, 0 0 70px #ffef97, 0 0 80px #ffef97, 0 0 100px #ffef97;
+            }
+
+            to {
+                text-shadow: 0 0 20px #ffd700, 0 0 30px #ffd700, 0 0 40px #ffd700, 0 0 50px #ffef97, 0 0 80px #ffef97, 0 0 90px #ffef97, 0 0 120px #ffef97;
+            }
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5em;
+            color: #ffd700;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-20px);
+            }
+
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>GameVatika.com</h2>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#Aquatank">Aquatank</a></li>
+                <li><a href="#CrazyHopper">Crazy Hopper</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="featured">
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="torotank.png" alt="Image 1">
+                    <div class="carousel-text-box">
+                        <h2>Toro Tank</h2>
+                        <p>Dive into the serene world of virtual aquatics! Care for your virtual fish, build an enchanting underwater environment, and experience the tranquility of a beautiful aquarium. </p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="crazy-hopper.png" alt="Image 2">
+                    <div class="carousel-text-box">
+                        <h2>Crazy Hopper</h2>
+                        <p>Experience an electrifying twist on pinball! Launch the ball, navigate dynamic obstacles, and strategize to reach the exit. Each stage presents unique challenges and special items to boost your abilities.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="crsl-1.png" alt="Image 3">
+                    <div class="carousel-text-box">
+                        <h2>Devil's Realm</h2>
+                        <p>Enter a dark, mysterious world filled with danger and intrigue. Battle sinister foes, solve ancient puzzles, and uncover hidden secrets. Your courage and wit will be tested at every turn.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="crsl-2.png" alt="Image 2">
+                    <div class="carousel-text-box">
+                        <h2>FireBall</h2>
+                        <p>Dive into the ultimate battle royale! Fight for survival in intense, fast-paced combat. Scavenge for weapons, strategize with your team, and be the last one standing in this action-packed game.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="crsl-3.png" alt="Image 2">
+                    <div class="carousel-text-box">
+                        <h2>Future Jump</h2>
+                        <p>Embark on a journey to create your own futuristic metropolis! Plan, build, and manage a high-tech cityscape filled with advanced architecture and innovative technology.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a> -->
+        </div>
+    </section>
+    
+
+    <section id="about">
+        <div class="content">
+            <h2>About Us</h2>
+            <p>
+                Welcome to GameVatika.com, where the future of gaming is brought to life. We are a visionary gaming company committed to creating groundbreaking and immersive experiences for gamers across the globe. Our dedicated team of developers, designers, and gaming enthusiasts work tirelessly to craft games that not only entertain but also inspire and challenge players.
+
+At GameVatika.com, we believe that gaming is more than just a pastime—it's an adventure that transcends reality. Our mission is to push the boundaries of what's possible in the gaming world by leveraging cutting-edge technology and innovative storytelling. Whether you're seeking heart-pounding action, mind-bending puzzles, or captivating narratives, our diverse library of games has something for everyone.
+
+Join us on this exciting journey and be part of the revolution in gaming. Together, let's explore new worlds, conquer challenges, and make unforgettable memories. The adventure starts here at GameVatika.com.
+            </p>
+        </div>
+        <div class="image-container">
+            <img src="about-background.png" alt="About Us Image">
+        </div>
+    </section>
+    <section id="Aquatank">
+        <div class="image-container">
+            <img src="torotank.png" alt="Screenshot of Game 1">
+        </div>
+        <div class="content">
+            <h2>Aquatank</h2>
+            <div class="container">   
+            </div>
+            <p>
+                Aquatank - My Virtual Fish Pet is more than just a game, it's a relaxing and rewarding experience that will make you feel closer to nature and your fishy friends. 
+<br>
+Download Aquatank - My Virtual Fish Pet today and enjoy the best virtual pet fish game ever! 
+            </p>
+            <a href="https://play.google.com/store/apps/details?id=com.torozy.torotank"  target="_blank">
+                <img src="app-store.png" style="width: 34%;"></img>
+            </a>
+        </div>
+    </section>
+    <section id="CrazyHopper">
+        <div class="content">
+            <h2>Crazy Hopper</h2>
+            <p>
+                Get ready for an electrifying twist on classic pinball action with Crazy Hopper! In this thrilling arcade game, your mission is simple: launch the ball and navigate through a maze of dynamic obstacles to find the exit. But there’s a catch – the ball bounces inelastically, making each move a test of strategy and skill
+<br>
+Progress through increasingly difficult stages, each with its own layout and set of challenges.
+Collect special items that enhance your ball’s abilities and help you reach the goal.
+            </p>
+            <a href="https://play.google.com/store/apps/details?id=com.gamevatika.hopper"  target="_blank">
+                <img src="app-store.png" style="width: 34%;"></img>
+            </a>
+            <div class="container">
+                
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="crazy-hopper.png" alt="Crazy Hopper">
+        </div>
+    </section>
+    <section id="contact">
+        <div class="image-container">
+            <img src="contact-background.png" alt="Contact Image">
+        </div>
+        <div class="content">
+            <h2>Contact Us</h2>
+            <p>Have any questions or feedback? Reach out to us at <a href="mailto:torozygames@gmail.com" style="color: #ffef97;">torozygames@gmail.com</a> or follow us on our social media channels.</p>
+            <div class="container">
+                <a href="https://play.google.com/store/apps/details?id=com.gamevatika.hopper" class="button">Start Your Adventure</a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 GameVatika.com. All rights reserved.</p>
+    </footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const carouselInner = document.querySelector('.carousel-inner');
+        const items = document.querySelectorAll('.carousel-item');
+        let currentIndex = 0;
+
+        const updateCarousel = () => {
+            carouselInner.style.transform = `translateX(-${currentIndex * 100 / items.length}%)`;
+            currentIndex = (currentIndex + 1) % items.length;
+        };
+
+        setInterval(updateCarousel, 1500); // Change slide every 3 seconds
+
+        updateCarousel();
+    });
+</script>
+
+
+
+</html>
