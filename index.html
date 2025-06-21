@@ -11,6 +11,7 @@
     <meta property="og:image" content="path-to-your-image.jpg">
     <meta property="og:url" content="your-website-url.com">
     <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="styles.css">
      
     <style>
@@ -30,17 +31,21 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            display: flex;
+            flex-direction: row;
+            max-height: 5%;
         }
 
         header h1 {
             font-size: 2.5em;
             margin: 0;
-            color: #ffd700;
+            color: rgb(255, 255, 255);
             animation: neon 1.5s ease-in-out infinite alternate;
         }
 
         nav {
-            margin-top: 10px;
+            /* margin-top: 10px; */
+            width: 100%;
         }
 
         nav ul {
@@ -48,7 +53,7 @@
             padding: 0;
             margin: 0;
             display: flex;
-            justify-content: center;
+            justify-content: space-evenly;
         }
 
         nav ul li {
@@ -56,62 +61,100 @@
         }
 
         nav ul li a {
-            color: #ffd700;
+            color: rgb(255, 255, 255);
             text-decoration: none;
             font-size: 1.2em;
             transition: color 0.3s ease;
         }
 
-        nav ul li a:hover {
-            color: #ffffff;
-        }
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.site-name {
+  font-size: 1.5em;
+  color: white;
+}
+
+
+
+nav ul li a:hover {
+    color: #5fe4f0;
+    background-color: rgba(0, 255, 255, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
 
         section {
-            padding: 100px 20px;
+            /* padding: 100px 20px; */
             margin-top: 70px;
             display: flex;
             align-items: center;
             justify-content: space-around;
         }
 
-        section:nth-child(odd) .content {
-            order: 1;
-        }
-
-        section:nth-child(odd) .image-container {
-            order: 2;
-        }
-
-        section:nth-child(even) .content {
-            order: 2;
-        }
-
-        section:nth-child(even) .image-container {
-            order: 1;
-        }
 
         h2 {
             font-size: 2em;
             margin-bottom: 20px;
-            color: #ffd700;
-            text-shadow: 0 0 10px #ffd700, 0 0 20px #ffef97;
+            color: rgb(255, 255, 255);
+            /* text-shadow: 0 0 10px #ffd700, 0 0 20px #ffef97; */
         }
 
-        .content {
-            width: 50%;
-            padding: 20px;
-        }
+       
 
-        .image-container {
-            width: 40%;
-        }
 
-        .image-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
-        }
+        #about {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.image-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 1;
+    mask-image: linear-gradient(to right, transparent 0%, transparent 5%, black 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 5%, black 100%);
+}
+
+.image-container-left{
+     mask-image: linear-gradient(to left, transparent 0%, transparent 5%, black 100%);
+    -webkit-mask-image: linear-gradient(to left, transparent 0%, transparent 5%, black 100%);
+
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    width: 50%;
+    padding: 2rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.5); /* Optional for better readability */
+}
+
+
+        
 
         .container {
             display: flex;
@@ -124,7 +167,7 @@
             padding: 15px 25px;
             font-size: 1em;
             color: #000000;
-            background: #ffd700;
+            background: rgb(255, 255, 255);
             border: none;
             border-radius: 5px;
             text-align: center;
@@ -145,47 +188,207 @@
             margin-top: 50px;
         }
 
-        .carousel {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    width: 100%;
+
+
+#featured {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
 }
 
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
 .carousel-inner {
-    display: flex;
-    width: 300%;
-    transition: transform 1s ease;
+  display: flex;
+  transition: transform 0.6s ease;
+  height: 100%;
 }
 
 .carousel-item {
-    flex: 0 0 33.333%;
-    position: relative;
-    max-height: 500px; /* Set a maximum height */
+  display: flex;
+  min-width: 100%;
+  height: 60vh;
 }
 
 .carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* This ensures the image fits within the given area while maintaining aspect ratio */
-    border-radius: 10px; /* Optional: Rounded corners */
+  width: 70%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .carousel-text-box {
-    position: absolute;
-    bottom: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.7);
-    color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    max-width: 80%;
+  width: 30%;
+  padding: 3rem;
+  color: #fff;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+.carousel-nav{
+  display: none;
+}
+
+.carousel-nav .prev,
+.carousel-nav .next {
+  cursor: pointer;
+  padding: 16px;
+  font-size: 2rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.carousel-cards {
+  display: flex;
+  overflow-x: auto;
+  padding: 1rem;
+  background: #000;
+}
+
+.carousel-card {
+  min-width: 150px;
+  background: #222;
+  color: #fff;
+  margin-right: 1rem;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  flex-shrink: 0;
+}
+
+.carousel-card.active {
+  background: #ff4757;
+  transform: scale(1.05);
+}
+
+/* Carousel container */
+.carousel-wrapper {
+  margin-top: 5%;
+  height: 60%;
+}
+
+.highlighted-cards {
+  display: flex;
+  width: 100%;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.highlighted-card {
+  position: relative;
+  flex: 1;
+  background-color: #232123;
+  overflow: hidden;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.highlighted-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  /* width: 0%; */
+  background-color: rgba(255, 255, 255, 0.3); /* your animated color overlay */
+  z-index: 0;
+  /* transition: none; */
+  width: var(--progress-width, 0%);
+  transition: var(--progress-transition, none);
+}
+
+.highlighted-card * {
+  position: relative;
+  z-index: 1; 
+ /* ensures images/text sit above the color fill */
+}
+
+.card {
+  transform: var(--card-transform, scale(1));
+  box-shadow: var(--card-shadow, none);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.selected {
+  transform: scale(1.1);
+  box-shadow: 0 0 5px 0 rgba(0, 255, 255, 0.399);
+  z-index: 10;
+}
+
+.card-image {
+  height: 82%;
+  z-index: 2;
+  flex: 2;
+  padding: 10px;
+  overflow: hidden;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+.card-text{
+  flex: 1;
+}
+
+.progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.3); /* your highlight shade */
+  z-index: 1;
+  width: 100%; /* starts full, reduces over time */
+  transition: width 0.5s linear;
+}
+
+.crazy-hopper-screenshots{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.screenshot-card{
+  flex: 1;
+  padding: 1%;
+}
+
+.screenshot-image{
+ max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .carousel-text-box {
+    left: 3%;
+    right: 3%;
+    top: 60%;
+    transform: translateY(-50%);
+    font-size: 0.9rem;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .carousel-item img {
+    object-position: center;
+  }
+
+  .carousel-nav .prev,
+  .carousel-nav .next {
+    font-size: 1.5rem;
+    padding: 10px;
+  }
+}
 
 
 
@@ -228,62 +431,116 @@
             }
         }
 
+
+        
     </style>
 </head>
 
 <body>
     <header>
-        <h2>GameVatika.com</h2>
         <nav>
             <ul>
+                <li>
+                  <span class="brand">
+                    <img class="logo" src="logo.png" alt="logo">
+                    <span class="site-name">GameVatika.com</span>
+                  </span>
+                </li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#Aquatank">Aquatank</a></li>
                 <li><a href="#CrazyHopper">Crazy Hopper</a></li>
+                <li><a href="#Aquatank">Aquatank</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="featured">
+
+<div class="carousel-wrapper">
+    
         <div class="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="torotank.png" alt="Image 1">
-                    <div class="carousel-text-box">
-                        <h2>Toro Tank</h2>
-                        <p>Dive into the serene world of virtual aquatics! Care for your virtual fish, build an enchanting underwater environment, and experience the tranquility of a beautiful aquarium. </p>
-                    </div>
-                </div>
                 <div class="carousel-item">
                     <img src="crazy-hopper.png" alt="Image 2">
                     <div class="carousel-text-box">
                         <h2>Crazy Hopper</h2>
-                        <p>Experience an electrifying twist on pinball! Launch the ball, navigate dynamic obstacles, and strategize to reach the exit. Each stage presents unique challenges and special items to boost your abilities.</p>
+                        <p>Experience an electrifying twist on pinball! Launch the ball, navigate dynamic obstacles, and
+                            strategize to reach the exit. Each stage presents unique challenges and special items to
+                            boost your abilities.</p>
+                    </div>
+                </div>
+                <div class="carousel-item active">
+                    <img src="torotank.png" alt="Image 1">
+                    <div class="carousel-text-box">
+                        <h2>Aquatank</h2>
+                        <p>Dive into the serene world of virtual aquatics! Care for your virtual fish, build an
+                            enchanting underwater environment, and experience the tranquility of a beautiful aquarium.
+                        </p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="crsl-1.png" alt="Image 3">
                     <div class="carousel-text-box">
                         <h2>Devil's Realm</h2>
-                        <p>Enter a dark, mysterious world filled with danger and intrigue. Battle sinister foes, solve ancient puzzles, and uncover hidden secrets. Your courage and wit will be tested at every turn.</p>
+                        <p>Enter a dark, mysterious world filled with danger and intrigue. Battle sinister foes, solve
+                            ancient puzzles, and uncover hidden secrets. Your courage and wit will be tested at every
+                            turn.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="crsl-2.png" alt="Image 2">
                     <div class="carousel-text-box">
                         <h2>FireBall</h2>
-                        <p>Dive into the ultimate battle royale! Fight for survival in intense, fast-paced combat. Scavenge for weapons, strategize with your team, and be the last one standing in this action-packed game.</p>
+                        <p>Dive into the ultimate battle royale! Fight for survival in intense, fast-paced combat.
+                            Scavenge for weapons, strategize with your team, and be the last one standing in this
+                            action-packed game.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="crsl-3.png" alt="Image 2">
                     <div class="carousel-text-box">
                         <h2>Future Jump</h2>
-                        <p>Embark on a journey to create your own futuristic metropolis! Plan, build, and manage a high-tech cityscape filled with advanced architecture and innovative technology.</p>
+                        <p>Embark on a journey to create your own futuristic metropolis! Plan, build, and manage a
+                            high-tech cityscape filled with advanced architecture and innovative technology.</p>
                     </div>
                 </div>
             </div>
-            <!-- <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <div class="carousel-nav">
+                <span class="prev">&#10094;</span>
+                <span class="next">&#10095;</span>
+            </div>
+
+        </div>
+
+<div class="highlighted-cards">
+  <div class="highlighted-card" data-duration="10">
+    <img src="crazy-hopper.png" alt="Crazy Hopper" class="card-image" />
+    <div class="card-text">Crazy Hopper</div>
+  </div>
+  <div class="highlighted-card" data-duration="10">
+    <img src="torotank.png" alt="Aquatank" class="card-image" />
+    <div class="card-text">Aquatank</div>
+  </div>
+  <div class="highlighted-card" data-duration="10">
+    <img src="crsl-1.png" alt="Devil's Realm" class="card-image" />
+    <div class="card-text">Devil's Realm</div>
+  </div>
+  <div class="highlighted-card" data-duration="10">
+    <img src="crsl-2.png" alt="FireBall" class="card-image" />
+    <div class="card-text">FireBall</div>
+  </div>
+  <div class="highlighted-card" data-duration="10">
+    <img src="crsl-3.png" alt="Future Jump" class="card-image" />
+    <div class="card-text">Future Jump</div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+    
+                <!-- <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
@@ -291,9 +548,6 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a> -->
-        </div>
-    </section>
-    
 
     <section id="about">
         <div class="content">
@@ -310,25 +564,11 @@ Join us on this exciting journey and be part of the revolution in gaming. Togeth
             <img src="about-background.png" alt="About Us Image">
         </div>
     </section>
-    <section id="Aquatank">
-        <div class="image-container">
-            <img src="torotank.png" alt="Screenshot of Game 1">
-        </div>
-        <div class="content">
-            <h2>Aquatank</h2>
-            <div class="container">   
-            </div>
-            <p>
-                Aquatank - My Virtual Fish Pet is more than just a game, it's a relaxing and rewarding experience that will make you feel closer to nature and your fishy friends. 
-<br>
-Download Aquatank - My Virtual Fish Pet today and enjoy the best virtual pet fish game ever! 
-            </p>
-            <a href="https://play.google.com/store/apps/details?id=com.torozy.torotank"  target="_blank">
-                <img src="app-store.png" style="width: 34%;"></img>
-            </a>
-        </div>
-    </section>
+
     <section id="CrazyHopper">
+      <div class="image-container image-container-left">
+            <img src="crazy-hopper.png" alt="Crazy Hopper">
+        </div>
         <div class="content">
             <h2>Crazy Hopper</h2>
             <p>
@@ -344,41 +584,152 @@ Collect special items that enhance your ball’s abilities and help you reach th
                 
             </div>
         </div>
+        
+    </section>
+    <div class="crazy-hopper-screenshots">
+      <div class="screenshot-card">
+            <img class="screenshot-image" src="sc2.jpg" alt="Crazy Hopper">
+        </div>
+        <div class="screenshot-card">
+            <img class="screenshot-image" src="sc1.jpg" alt="Crazy Hopper">
+        </div>
+        <div class="screenshot-card">
+            <img class="screenshot-image" src="sc3.jpg" alt="Crazy Hopper">
+        </div>
+        
+        
+      </div>
+
+    <section id="Aquatank">
+        
+        <div class="content">
+            <h2>Aquatank(Coming Soon)</h2>
+            <div class="container">   
+            </div>
+            <p>
+                Aquatank - My Virtual Fish Pet is more than just a game, it's a relaxing and rewarding experience that will make you feel closer to nature and your fishy friends. 
+<br>
+Download Aquatank - My Virtual Fish Pet today and enjoy the best virtual pet fish game ever! 
+            </p>
+            
+        </div>
         <div class="image-container">
-            <img src="crazy-hopper.png" alt="Crazy Hopper">
+            <img src="torotank.png" alt="Screenshot of Game 1">
         </div>
     </section>
+
     <section id="contact">
-        <div class="image-container">
+        <div class="image-container image-container-left">
             <img src="contact-background.png" alt="Contact Image">
         </div>
         <div class="content">
             <h2>Contact Us</h2>
-            <p>Have any questions or feedback? Reach out to us at <a href="mailto:torozygames@gmail.com" style="color: #ffef97;">torozygames@gmail.com</a> or follow us on our social media channels.</p>
+            <p>Have any questions or feedback? Reach out to us at <a href="mailto:support@gamevatika.com" style="color: #ffef97;">support@gamevatika.com</a> or follow us on our social media channels.</p>
             <div class="container">
                 <a href="https://play.google.com/store/apps/details?id=com.gamevatika.hopper" class="button">Start Your Adventure</a>
             </div>
         </div>
     </section>
     <footer>
-        <p>&copy; 2024 GameVatika.com. All rights reserved.</p>
+        <p>&copy; 2025 GameVatika.com. All rights reserved.</p>
     </footer>
 </body>
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const carouselInner = document.querySelector('.carousel-inner');
-        const items = document.querySelectorAll('.carousel-item');
-        let currentIndex = 0;
 
-        const updateCarousel = () => {
-            carouselInner.style.transform = `translateX(-${currentIndex * 100 / items.length}%)`;
-            currentIndex = (currentIndex + 1) % items.length;
-        };
+  const items = document.querySelectorAll(".carousel-item");
+  const cards = document.querySelectorAll(".highlighted-card"); // assuming className is .carousel-card
+  const inner = document.querySelector(".carousel-inner");
+  let currentIndex = 0;
+  let autoSlideInterval;
+  let progressFillInterval;
 
-        setInterval(updateCarousel, 1500); // Change slide every 3 seconds
+//   function updateProgressBar(index, duration = 5000) {
+//     // const fills = document.querySelectorAll(".highlighted-card");
+// const fills = document.querySelectorAll(".progress-fill");
 
-        updateCarousel();
+//     fills.forEach((fill, i) => {
+//       if (i === index) {
+//         fill.style.transition = `none`;
+//         fill.style.width = `0%`; // Start empty
+//         requestAnimationFrame(() => {
+//           void fill.offsetWidth;
+//           fill.style.transition = `width ${duration}ms linear`;
+//           fill.style.width = `100%`; // Animate to full
+//         });
+//       } else {
+//         fill.style.transition = `none`;
+//         fill.style.width = `0%`;
+//       }
+//     });
+//   }
+
+function updateProgressBar(index, duration = 5000) {
+  const cards = document.querySelectorAll(".highlighted-card");
+
+  cards.forEach((card, i) => {
+    card.style.setProperty("--progress-width", "0%");
+    card.style.setProperty("--progress-transition", "none");
+    card.classList.remove("selected");
+
+    if (i === index) {
+      // Force reflow
+      void card.offsetWidth;
+
+      card.style.setProperty("--progress-transition", `width ${duration}ms linear`);
+      card.style.setProperty("--progress-width", "100%");
+    card.classList.add("selected");
+
+    }
+  });
+}
+
+
+
+  function showSlide(index) {
+    inner.style.transform = `translateX(-${index * 100}%)`;
+
+    cards.forEach((card, i) => {
+      card.classList.toggle("active", i === index);
     });
+
+    updateProgressBar(index);
+  }
+
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % items.length;
+      showSlide(currentIndex);
+    }, 5000);
+
+    updateProgressBar(currentIndex);
+  }
+
+  document.querySelector(".next").addEventListener("click", () => {
+    clearInterval(autoSlideInterval);
+    currentIndex = (currentIndex + 1) % items.length;
+    showSlide(currentIndex);
+    startAutoSlide();
+  });
+
+  document.querySelector(".prev").addEventListener("click", () => {
+    clearInterval(autoSlideInterval);
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    showSlide(currentIndex);
+    startAutoSlide();
+  });
+
+  cards.forEach((card, index) => {
+    card.addEventListener("click", () => {
+      clearInterval(autoSlideInterval);
+      currentIndex = index;
+      showSlide(index);
+      startAutoSlide();
+    });
+  });
+
+  startAutoSlide();
+
+
 </script>
 
 
