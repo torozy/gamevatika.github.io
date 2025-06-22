@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="styles.css">
      
     <style>
+
+      
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
@@ -273,6 +275,7 @@ nav ul li a:hover {
 .carousel-wrapper {
   margin-top: 5%;
   height: 60%;
+  overflow: hidden;
 }
 
 .highlighted-cards {
@@ -360,34 +363,25 @@ nav ul li a:hover {
 
 .screenshot-card{
   flex: 1;
-  padding: 1%;
+  margin: 1%;
+  border: 5px #fff;
+  border-style: solid;
+  border-radius: 36px;
+  background-color: #fafafa;
+  overflow: hidden;
+  box-shadow: -10px 9px 20px rgba(255, 255, 255, 0.3);
+}
+
+.screenshot-card-spacer{
+
+  flex: 1;
 }
 
 .screenshot-image{
- max-width: 100%;
-}
-
-@media (max-width: 768px) {
-  .carousel-text-box {
-    left: 3%;
-    right: 3%;
-    top: 60%;
-    transform: translateY(-50%);
-    font-size: 0.9rem;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 1rem;
-    border-radius: 10px;
-  }
-
-  .carousel-item img {
-    object-position: center;
-  }
-
-  .carousel-nav .prev,
-  .carousel-nav .next {
-    font-size: 1.5rem;
-    padding: 10px;
-  }
+ width: 100%;
+  height: 60vh;
+  display: block;
+  border-radius: 0;
 }
 
 
@@ -430,6 +424,82 @@ nav ul li a:hover {
                 transform: translateY(-10px);
             }
         }
+
+
+
+
+@media (max-width: 768px) {
+
+  html, body {
+  overflow-x: hidden;
+}
+
+
+  header{
+    padding: 10px 0 10px 0px;
+    width: 100vw;
+  }
+  .brand{
+    margin-left: 15vw;
+    width: 50vw;
+  }
+
+  nav ul li a{
+    display: none;
+  }
+
+  .carousel-text-box {
+    display: none;
+  }
+
+  .carousel-item img {
+    width: 100%;
+    object-position: center;
+  }
+
+  .carousel-nav .prev,
+  .carousel-nav .next {
+    font-size: 1.5rem;
+    padding: 10px;
+  }
+
+  .content {
+    width: 80%;
+  }
+
+  .highlighted-cards{
+    flex-direction: column;
+  }
+
+  .card-image{
+    max-height: 10vh;
+    object-fit: cover;
+  }
+
+  section {
+    flex-direction: column;
+  }
+
+  .image-container{
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 1%, black 10%);
+    mask-image: linear-gradient(to bottom, transparent 0%, transparent 1%, black 10%);
+  }
+  .image-container-left{
+     mask-image: linear-gradient(to top, transparent 0%, transparent 1%, black 10%);
+    -webkit-mask-image: linear-gradient(to top, transparent 0%,  transparent 1%, black 10%);
+
+  }
+
+  .crazy-hopper-screenshots{
+    flex-direction: column;
+  }
+  .screenshot-card{
+    width: 60%;
+  margin-left: 20%;
+  margin-bottom: 5%;
+  }
+}
+
 
 
         
@@ -587,15 +657,19 @@ Collect special items that enhance your ball’s abilities and help you reach th
         
     </section>
     <div class="crazy-hopper-screenshots">
+      <div class="screenshot-card-spacer"></div>
       <div class="screenshot-card">
             <img class="screenshot-image" src="sc2.jpg" alt="Crazy Hopper">
         </div>
+      <div class="screenshot-card-spacer"></div>
         <div class="screenshot-card">
             <img class="screenshot-image" src="sc1.jpg" alt="Crazy Hopper">
         </div>
+      <div class="screenshot-card-spacer"></div>
         <div class="screenshot-card">
             <img class="screenshot-image" src="sc3.jpg" alt="Crazy Hopper">
         </div>
+      <div class="screenshot-card-spacer"></div>
         
         
       </div>
